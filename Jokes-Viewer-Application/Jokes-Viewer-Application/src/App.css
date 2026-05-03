@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  background: linear-gradient(135deg, #eef5ff, #f8fbff);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+h1 {
+  color: #057EEF;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  margin-bottom: 20px;
+}
+
+.joke {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+
+button {
+  padding: 10px 20px;
+  background: #057EEF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #0466c8;
+  transform: translateY(-2px);
+}
+
+.status {
+  font-size: 16px;
+}
+
+.status.error {
+  color: red;
+}
