@@ -1,0 +1,103 @@
+/* ===== Base ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fb;
+}
+
+/* ===== App ===== */
+.app {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* ===== Title ===== */
+h1 {
+  color: #057EEF;
+  margin-bottom: 10px;
+}
+
+/* ===== Button ===== */
+button {
+  padding: 8px 16px;
+  border: none;
+  background: #057EEF;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+button:hover {
+  background: #0466c8;
+}
+
+/* ===== Grid ===== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  max-width: 900px;
+  margin: 0 auto;
+
+  justify-items: center;
+}
+
+/* ===== Card ===== */
+.card {
+  width: 180px;
+  padding: 12px;
+  background: white;
+
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== Image ===== */
+.card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ===== Title ===== */
+.card h3 {
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+/* ===== Price ===== */
+.price {
+  color: #057EEF;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ===== Category ===== */
+.category {
+  font-size: 11px;
+  color: #777;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
