@@ -1,0 +1,142 @@
+/* ===== Base Reset ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  background: linear-gradient(135deg, #eef5ff, #f8fbff);
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ===== App ===== */
+.app {
+  text-align: center;
+  width: 100%;
+  padding: 40px 20px;
+  color: #1a1a1a;
+}
+
+/* ===== Title ===== */
+h1 {
+  margin-bottom: 10px;
+  color: #057EEF;
+}
+
+/* ===== Button ===== */
+button {
+  padding: 8px 16px;
+  border: none;
+  background: #057EEF;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 35px;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #0466c8;
+}
+
+/* ===== Grid ===== */
+.container {
+  display: grid;
+
+  /* FORCE 3 columns */
+  grid-template-columns: repeat(3, 1fr);
+
+  /* REAL spacing */
+  gap: 40px;
+
+  max-width: 900px;
+  margin: 0 auto;
+
+  justify-items: center; /* prevent stretch */
+}
+
+.card {
+  width: 180px; /* 🔥 small cards */
+
+  padding: 14px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 6px 16px rgba(5, 126, 239, 0.12);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid #057EEF;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 14px;
+  margin: 4px 0;
+  text-align: center;
+}
+
+.meta {
+  font-size: 11px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.email {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.card hr {
+  width: 70%;
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 6px 0;
+}
+
+.card p {
+  font-size: 11px;
+  margin: 3px 0;
+  text-align: center;
+}
+
+.status {
+  font-size: 14px;
+}
+
+.status.error {
+  color: red;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
