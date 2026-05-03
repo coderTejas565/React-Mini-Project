@@ -1,16 +1,112 @@
-# React + Vite
+# 🛍️ Product Listing Interface (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern product listing interface built using React.  
+This app fetches product data from an API and displays it in a clean, responsive grid layout.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- Fetches products from a real API
+- Displays products in a grid (3 → 2 → 1 responsive layout)
+- Reusable `ProductCard` component
+- Loading and error state handling
+- Refresh button to reload products
+- Clean and minimal UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React (Hooks)
+- JavaScript (ES6+)
+- Fetch API
+- CSS (Grid + Flexbox)
+
+---
+
+## 📂 Project Structure
+
+```
+
+src/
+├── App.jsx
+├── App.css
+└── components/
+└── ProductCard.jsx
+
+````
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/coderTejas565/product-listing-app.git
+````
+
+### 2. Navigate to project
+
+```bash
+cd product-listing-app
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the app
+
+```bash
+npm run dev
+```
+
+---
+
+## 🌐 API Used
+
+* FreeAPI – Random Products
+* Endpoint:
+
+```
+https://api.freeapi.app/api/v1/public/randomproducts?page=1&limit=10&query=mens-watches
+```
+
+---
+
+## 🧠 What I Learned
+
+* Handling nested API responses (`data.data.data`)
+* Rendering dynamic lists using `.map()`
+* Creating reusable UI components
+* Managing loading and error states
+* Designing responsive layouts using CSS Grid
+* Structuring UI for better user experience
+
+---
+
+## 📌 Future Improvements
+
+* Add search functionality
+* Add category filters (men / women)
+* Add pagination
+* Add product detail page
+* Improve UI animations
+
+---
+
+## 📷 Preview
+
+(Add a screenshot of your project here)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+```
