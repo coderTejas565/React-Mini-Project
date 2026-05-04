@@ -1,8 +1,7 @@
-/* ===== Base & Variables ===== */
 :root {
-  --accent: #2d5a27; /* Deep Forest Green */
+  --accent: #2d5a27; 
   --accent-light: #ecf3eb;
-  --bg: #fcfcf9; /* Off-white paper feel */
+  --bg: #fcfcf9; 
   --text-main: #2c3e50;
   --text-muted: #7f8c8d;
   --card-bg: #ffffff;
@@ -18,7 +17,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== App Layout ===== */
 .app {
   text-align: center;
   padding: 60px 20px;
@@ -26,7 +24,6 @@ body {
   margin: 0 auto;
 }
 
-/* ===== Typography ===== */
 h1 {
   font-family: "Georgia", serif;
   font-size: 2.8rem;
@@ -44,19 +41,17 @@ h1 {
   letter-spacing: 1px;
 }
 
-/* ===== Grid ===== */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
 }
 
-/* ===== Card Styling ===== */
 .card {
   background: var(--card-bg);
   padding: 40px;
-  border-radius: 4px; /* Sharper corners for a more formal look */
-  border-left: 4px solid var(--accent); /* Subtle accent bar */
+  border-radius: 4px; 
+  border-left: 4px solid var(--accent); 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   text-align: left;
   transition: var(--transition);
@@ -68,10 +63,9 @@ h1 {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-left-width: 8px; /* Expands slightly on hover */
+  border-left-width: 8px; 
 }
 
-/* ===== Quote Text ===== */
 .content {
   font-family: "Georgia", serif;
   font-size: 1.3rem;
@@ -81,7 +75,6 @@ h1 {
   z-index: 1;
 }
 
-/* The Quote Decoration */
 .content::before {
   content: "“";
   font-family: "Georgia", serif;
@@ -94,7 +87,6 @@ h1 {
   z-index: -1;
 }
 
-/* ===== Author ===== */
 .author {
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -104,7 +96,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* ===== Tags ===== */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +120,6 @@ h1 {
   color: white;
 }
 
-/* ===== Action Button ===== */
 button {
   margin-top: 60px;
   padding: 15px 40px;
@@ -150,7 +140,6 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 600px) {
   h1 { font-size: 2.2rem; }
   .card { padding: 30px; }
