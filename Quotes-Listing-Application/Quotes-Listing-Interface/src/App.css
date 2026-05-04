@@ -1,81 +1,157 @@
+/* ===== Base & Variables ===== */
+:root {
+  --accent: #2d5a27; /* Deep Forest Green */
+  --accent-light: #ecf3eb;
+  --bg: #fcfcf9; /* Off-white paper feel */
+  --text-main: #2c3e50;
+  --text-muted: #7f8c8d;
+  --card-bg: #ffffff;
+  --border-color: #eee;
+  --transition: all 0.3s ease;
+}
+
 body {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  background: #f5f7fb;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
 }
 
+/* ===== App Layout ===== */
 .app {
   text-align: center;
-  padding: 30px 20px;
-}
-
-h1 {
-  color: #057EEF;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 8px 16px;
-  border: none;
-  background: #057EEF;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 25px;
-}
-
-button:hover {
-  background: #0466c8;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-
-  max-width: 900px;
+  padding: 60px 20px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-
-  text-align: left;
-}
-
-.content {
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.author {
-  font-size: 14px;
-  color: #057EEF;
+/* ===== Typography ===== */
+h1 {
+  font-family: "Georgia", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-main);
   margin-bottom: 10px;
+  letter-spacing: -1px;
 }
 
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* ===== Grid ===== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* ===== Card Styling ===== */
+.card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 4px; /* Sharper corners for a more formal look */
+  border-left: 4px solid var(--accent); /* Subtle accent bar */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-left-width: 8px; /* Expands slightly on hover */
+}
+
+/* ===== Quote Text ===== */
+.content {
+  font-family: "Georgia", serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+  z-index: 1;
+}
+
+/* The Quote Decoration */
+.content::before {
+  content: "“";
+  font-family: "Georgia", serif;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-size: 80px;
+  color: var(--accent);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* ===== Author ===== */
+.author {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ===== Tags ===== */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .tags span {
-  background: #e3efff;
-  color: #057EEF;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 2px;
+  transition: var(--transition);
 }
 
+.tags span:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* ===== Action Button ===== */
+button {
+  margin-top: 60px;
+  padding: 15px 40px;
+  background: transparent;
+  border: 2px solid var(--text-main);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--text-main);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 600px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
+  h1 { font-size: 2.2rem; }
+  .card { padding: 30px; }
 }

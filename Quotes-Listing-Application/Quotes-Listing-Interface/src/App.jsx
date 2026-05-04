@@ -1,89 +1,55 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
-function QuoteCard({ quote }) {
-  return (
-    <div className="card">
-      <p className="content">"{quote.content}"</p>
-
-      <h4 className="author">— {quote.author}</h4>
-
-      {quote.tags?.length > 0 && (
-        <div className="tags">
-          {quote.tags.map((tag, index) => (
-            <span key={index}>{tag}</span>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
+import QuoteCard from "./Component/QuoteCard";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  async function fetchQuotes() {
-    try {
-      setLoading(true);
-      setError(null);
+  const [page, setPage] = useState(1);
 
+  async function fetchQuotes(pageNum = 1) {
       const response = await fetch(
-        "https://api.freeapi.app/api/v1/public/quotes?page=1&limit=10&query=human"
+        `https://api.freeapi.app/api/v1/public/quotes?page=${pageNum}&limit=10`
       );
 
       const data = await response.json();
 
-      // 🔥 correct nesting
-      setQuotes(data?.data?.data || []);
-    } catch (err) {
-      setError("Failed to fetch quotes");
-    } finally {
-      setLoading(false);
-    }
+      if (data.success) {
+        if (pageNum === 1) {
+          setQuotes(data.data.data);
+        } else {
+          setQuotes((prev) => [...prev, ...data.data.data]);
+        }
+      } else {
+        throw new Error();
+      }
   }
 
   useEffect(() => {
-    fetchQuotes();
+    fetchQuotes(1);
   }, []);
 
-  if (loading) {
-    return (
-      <div className="app">
-        <p className="status">Loading quotes...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="app">
-        <p className="status error">{error}</p>
-        <button onClick={fetchQuotes}>Retry</button>
-      </div>
-    );
-  }
-
-  if (!quotes.length) {
-    return (
-      <div className="app">
-        <p>No quotes found</p>
-      </div>
-    );
+  function loadMore() {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchQuotes(nextPage);
   }
 
   return (
     <div className="app">
-      <h1>Quotes Listing</h1>
-
-      <button onClick={fetchQuotes}>Refresh</button>
+      <h1>Quotes Gallery</h1>
+      <p className="subtitle">
+        A collection of timeless thoughts and ideas
+      </p>
 
       <div className="container">
         {quotes.map((quote) => (
           <QuoteCard key={quote.id} quote={quote} />
         ))}
       </div>
+
+      <button onClick={loadMore}>Load More
+      </button>
     </div>
   );
 }
