@@ -6,7 +6,7 @@ A clean and minimal **Quotes Gallery UI** built using React, focused on deliveri
 
 ## Live Demo
 
-👉 *(Add your deployed link here — Vercel / Netlify)*
+(https://quotes-gallery-timeless-thoughts.netlify.app/)
 
 ---
 
