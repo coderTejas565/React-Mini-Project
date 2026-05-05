@@ -25,6 +25,9 @@ function App() {
     <div className="app">
       <h1>Random Cat Viewer</h1>
 
+<span className="ear-left"></span>
+  <span className="ear-right"></span>
+
       <div className="card">
         <img src={cat.image} alt={cat.name} />
 
