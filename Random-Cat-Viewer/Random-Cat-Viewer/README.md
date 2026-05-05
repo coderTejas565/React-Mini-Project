@@ -90,11 +90,8 @@ npm run dev
 
 ## Screenshot
 
-Add your project screenshot inside the `assets` folder and link it here:
 
-```
 ![App Screenshot](./assets/cat.png)
-```
 
 ---
 
