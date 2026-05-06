@@ -1,117 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
+:root {
+  --primary: #ff4757;
+  --accent: #ffa502;
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --text-dark: #2f3542;
+  --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #eef5ff, #f8fbff);
+  font-family: 'Outfit', sans-serif;
+  background-color: #f1f2f6;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(255, 71, 87, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(78, 205, 196, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 165, 2, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(112, 161, 255, 0.15) 0px, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.app {
+.app-header {
   text-align: center;
-  padding: 40px 20px;
-  color: #1a1a1a;
+  padding: 60px 20px;
+  perspective: 1000px;
 }
 
-h1 {
-  color: #057EEF;
-  margin-bottom: 10px;
+.app-header h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  background: linear-gradient(to right, #ff4757, #ffa502);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -2px;
+  animation: titleFloat 3s ease-in-out infinite;
 }
 
-button {
-  padding: 8px 16px;
-  border: none;
-  background: #057EEF;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 30px;
-  font-size: 14px;
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0) rotateX(0); }
+  50% { transform: translateY(-10px) rotateX(5deg); }
 }
 
-button:hover {
-  background: #0466c8;
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  opacity: 0.7;
+  font-weight: 300;
 }
 
-.status {
-  font-size: 14px;
-}
-
-.status.error {
-  color: red;
-}
-
-.container {
+.meal-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 0 20px 100px;
+  max-width: 1300px;
   margin: 0 auto;
-
-  justify-items: center;
 }
 
-.card {
-  width: 200px; /* compact */
-  padding: 12px;
-
-  border-radius: 12px;
-  background: white;
-
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-
+.meal-card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  transition: 0.2s ease;
+  position: relative;
 }
 
-.card:hover {
-  transform: translateY(-4px);
+.meal-card {
+  animation: cardEntrance 0.8s ease-out backwards;
 }
 
-.card img {
+@keyframes cardEntrance {
+  from { opacity: 0; transform: scale(0.9) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.meal-card:hover {
+  transform: scale(1.03) translateY(-15px);
+  box-shadow: 0 30px 60px rgba(255, 71, 87, 0.2);
+  border-color: var(--primary);
+}
+
+.card-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
   width: 100%;
-  height: 120px;
+  height: 100%;
   object-fit: cover;
-
-  border-radius: 10px;
-  margin-bottom: 10px;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.card h3 {
-  font-size: 14px;
-  margin: 6px 0;
-  text-align: center;
+.meal-card:hover .card-image img {
+  transform: scale(1.1) rotate(2deg);
 }
 
-.meta {
-  font-size: 12px;
-  color: #777;
-  margin-bottom: 6px;
+.category-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 2;
 }
 
-.tags {
-  font-size: 11px;
-  color: #555;
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
   margin-bottom: 8px;
-  text-align: center;
+  line-height: 1.2;
 }
 
-.btn {
+.area-tag {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.meal-desc {
+  font-size: 0.95rem;
+  color: #57606f;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
   margin-top: auto;
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 6px;
 }
 
-@media (max-width: 900px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.view-btn {
+  background: var(--text-dark);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex: 1;
 }
 
-@media (max-width: 500px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
+.view-btn:hover {
+  background: var(--primary);
+  box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
+}
+
+.youtube-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff0000;
+  color: white;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 0; /* Hide "Video" text, keep only icon/arrow */
+}
+
+.youtube-link::before {
+  content: '▶';
+  font-size: 1.2rem;
+}
+
+.youtube-link:hover {
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 4px solid transparent;
+  border-top-color: var(--primary);
+  border-bottom-color: var(--accent);
+  border-radius: 50%;
+  animation: steamSpin 1s infinite linear;
+  margin: 0 auto;
+}
+
+@keyframes steamSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f1f2f6; }
+::-webkit-scrollbar-thumb { 
+  background: linear-gradient(var(--primary), var(--accent)); 
+  border-radius: 10px;
 }
