@@ -1,11 +1,11 @@
-# 🍽️ Meals Listing Interface (React)
+# Meals Listing Interface (React)
 
 A clean and responsive meals listing app built using React.  
 This project fetches real meal data from an API and displays it in a modern card-based UI.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Fetches real meal data from API
 - Displays meals in a responsive grid (3 → 2 → 1 layout)
@@ -16,7 +16,7 @@ This project fetches real meal data from an API and displays it in a modern card
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - React (Hooks)
 - JavaScript (ES6+)
@@ -25,7 +25,7 @@ This project fetches real meal data from an API and displays it in a modern card
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 
@@ -33,18 +33,18 @@ src/
 ├── App.jsx
 ├── App.css
 └── components/
-└── MealCard.jsx (optional separation)
+└── MealCard.jsx
 
 ````
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/meals-listing-app.git
+git clone https://github.com/coderTejas565/meals-listing-app.git
 ````
 
 ### 2. Navigate to project
@@ -67,7 +67,7 @@ npm run dev
 
 ---
 
-## 🌐 API Used
+## API Used
 
 * Meals API from FreeAPI
 * Endpoint:
@@ -75,7 +75,7 @@ npm run dev
 
 ---
 
-## 🧠 What I Learned
+## What I Learned
 
 * How to fetch and handle API data in React
 * Managing loading and error states
@@ -86,7 +86,7 @@ npm run dev
 
 ---
 
-## 📌 Future Improvements
+## Future Improvements
 
 * Add search and filtering functionality
 * Pagination support
@@ -95,16 +95,14 @@ npm run dev
 
 ---
 
-## 📷 Preview
+## Preview
 
-(Add your project screenshot here)
+![App Screenshot](./assets/food.png)
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source and available under the MIT License.
 
 ````
-
----

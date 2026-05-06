@@ -1,18 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
 import "./App.css";
-import MealCard from "../Component/MealCard";
+import MealCard from "./Component/MealCard";
 
 function App() {
   const [meals, setMeals] = useState([]);
 
-  const fetchMeals = useCallback(async () => {
+  async function fetchMeals () {
       const response = await fetch("https://api.freeapi.app/api/v1/public/meals");
     
       
-      const json = await response.json();
-      setMeals(json?.data?.data || []);
+      const data = await response.json();
+      setMeals(data?.data?.data || []);
     
-  }, []);
+  }
 
   useEffect(() => {
     fetchMeals();
