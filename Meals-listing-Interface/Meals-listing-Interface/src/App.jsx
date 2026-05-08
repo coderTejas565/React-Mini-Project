@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     fetchMeals();
-  }, [fetchMeals]);
+  }, []);
 
   return (
     <div className="app">
