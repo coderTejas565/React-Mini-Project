@@ -3,14 +3,8 @@ import "./App.css";
 
 function App() {
   const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   async function fetchVideos() {
-    try {
-      setLoading(true);
-      setError(null);
-
       const res = await fetch(
         "https://api.freeapi.app/api/v1/public/youtube/related/eLyISYdoVac?page=1&limit=5"
       );
@@ -18,33 +12,11 @@ function App() {
       const data = await res.json();
 
       setVideos(data?.data?.data || []);
-    } catch (err) {
-      setError("Failed to load videos");
-    } finally {
-      setLoading(false);
-    }
   }
 
   useEffect(() => {
     fetchVideos();
   }, []);
-
-  if (loading) {
-    return (
-      <div className="app">
-        <p className="status">Loading videos...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="app">
-        <p className="status error">{error}</p>
-        <button onClick={fetchVideos}>Retry</button>
-      </div>
-    );
-  }
 
   return (
     <div className="app">
@@ -69,10 +41,6 @@ function App() {
                 <p className="meta">
                   {new Date(v.snippet.publishedAt).toDateString()} •{" "}
                   {Number(v.statistics.viewCount).toLocaleString()} views
-                </p>
-
-                <p className="duration">
-                  Duration: {v.contentDetails.duration}
                 </p>
               </div>
             </div>
